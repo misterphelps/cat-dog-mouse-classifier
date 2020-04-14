@@ -1,7 +1,7 @@
 # Cat-Dog-Mouse Classifier
 ### By Arda Mavi with edits by Benny Kolbeson and additional content by Paul Phelps
 
-cat-mouse-dog classifier hybrid of the following tutorial and repository:<br/>
+cat-dog-mouse classifier hybrid of the following tutorial and repository:<br/>
 
 https://stackabuse.com/creating-a-neural-network-from-scratch-in-python-multi-class-classification/<br/>
 https://github.com/ardamavi/Dog-Cat-Classifier.<br/>
