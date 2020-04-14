@@ -1,7 +1,7 @@
 numpy
 scikit-learn
 scikit-image
-tensorflow==2.0.0
+tensorflow==2.0.1
 keras
 h5py
 jupyter
