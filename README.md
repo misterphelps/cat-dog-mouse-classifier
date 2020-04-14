@@ -1,5 +1,5 @@
 # Cat-Dog-Mouse Classifier
-### By Arda Mavi with edits by Benny Kolbeson
+### By Arda Mavi with edits by Benny Kolbeson and additional content by Paul Phelps
 
 cat-mouse-dog classifier hybrid of the following tutorial and repository:<br/>
 
