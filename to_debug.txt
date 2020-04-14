@@ -1,0 +1,46 @@
+def train_model(model, X, X_test, Y, Y_test):
+    checkpoints = []
+    if not os.path.exists('Data/Checkpoints/'):
+        os.makedirs('Data/Checkpoints/')
+    checkpoints.append(keras.callbacks.ModelCheckpoint('Data/Checkpoints/best_weights.h5', monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=True, mode='auto', period=1))
+    checkpoints.append(keras.callbacks.TensorBoard(log_dir='Data/Checkpoints/./logs', histogram_freq=0, write_graph=True, write_images=False, embeddings_freq=0, embeddings_layer_names=None, embeddings_metadata=None))
+
+    # Creates live data:
+    # For better yield. The duration of the training is extended.
+
+    # If you don't want, use this:
+    # model.fit(X, Y, batch_size=10, epochs=25, validation_data=(X_test, Y_test), shuffle=True, callbacks=checkpoints)
+
+    generated_data = keras.preprocessing.image.ImageDataGenerator(featurewise_center=False, samplewise_center=False, featurewise_std_normalization=False, samplewise_std_normalization=False, zca_whitening=False, rotation_range=0,  width_shift_range=0.1, height_shift_range=0.1, horizontal_flip = False, vertical_flip = False)
+    generated_data.fit(X)
+    model.fit_generator(generated_data.flow(X, Y, batch_size=8), steps_per_epoch=X.shape[0]//8, epochs=25, validation_data=(X_test, Y_test), callbacks=checkpoints)
+
+    return model
+
+
+---------------------------------------------------------------------------
+
+model = train_model(model, X, X_test, Y, Y_test)
+
+save_model(model)
+
+​
+
+​
+
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-7-323a189c86c3> in <module>
+----> 1 model = train_model(model, X, X_test, Y, Y_test)
+      2 save_model(model)
+      3 
+
+<ipython-input-6-1241dead05cc> in train_model(model, X, X_test, Y, Y_test)
+     14     generated_data = keras.preprocessing.image.ImageDataGenerator(featurewise_center=False, samplewise_center=False, featurewise_std_normalization=False, samplewise_std_normalization=False, zca_whitening=False, rotation_range=0,  width_shift_range=0.1, height_shift_range=0.1, horizontal_flip = False, vertical_flip = False)
+     15     generated_data.fit(X)
+---> 16     model.fit_generator(generated_data.flow(X, Y, batch_size=8), steps_per_epoch=X.shape[0]//8, epochs=25, validation_data=(X_test, Y_test), callbacks=checkpoints)
+     17 
+     18     return model
+
+AttributeError: 'NoneType' object has no attribute 'fit_generator'
+
