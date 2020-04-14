@@ -79,5 +79,6 @@ If you want to add a new training image to previously category datasets, you add
 Note: We work on 64x64 image also if you use bigger or smaller, program will automatically return to 64x64.
 
 ### Important Notes:
-- Used Python Version: 3.6.0
+- Used Python Version: 3.6.9
+- tensorflow version 2.0.0
 - Install necessary modules with `sudo pip3 install -r requirements.txt` command.
